@@ -53,7 +53,7 @@ Local File System
 ## ⚙️ Installation & Setup
 
 ```bash
-### 1️⃣ Clone the Repository
+1️⃣ Clone the Repository
 
 git clone https://github.com/your-username/drafter-agent.git
 cd drafter-agent 
@@ -66,3 +66,77 @@ pip install langchain langgraph langchain-google-genai python-dotenv
 Create a .env file in the root directory:
 
 GOOGLE_API_KEY=your_google_gemini_api_key
+```
+
+## ▶️ How to Run
+```bash
+python main.py
+```
+
+## 🧪 Example Usage
+
+```bash
+What would you like to do with the document?
+> Create a README for my AI project
+
+AI: (Updates the document)
+
+What would you like to do with the document?
+> Save as project_readme
+```
+The file will be saved as:
+```bash
+project_readme.txt
+
+```
+## 🛠️ Tools Used by the Agent
+✍️ update
+
+Updates the entire document content.
+```bash
+update(content: str) -> str
+```
+
+💾 save
+
+Saves the document and ends the workflow.
+```bash
+save(filename: str) -> str
+```
+
+## 🧠 Concepts Demonstrated
+
+Tool-augmented LLMs
+
+LangGraph-based agent workflows
+
+Stateful conversations
+
+Conditional execution and termination
+
+Separation of reasoning and actions
+
+
+## ⚠️ Limitations
+
+Partial edits are not supported (full document rewrite only)
+
+Single document per session
+
+Terminal-based UI
+
+## 🔮 Future Improvements
+
+Partial document editing
+
+Markdown / PDF export
+
+Web-based UI
+
+Version history and undo support
+
+Multi-document sessions
+
+## 📜 License
+
+This project is licensed under the MIT License.
