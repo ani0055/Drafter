@@ -1,113 +1,68 @@
-# 📝 Drafter
-An AI-Powered Document Writing Agent using LangGraph & Gemini
+# 📝 Drafter – AI Document Writing Agent
 
-Drafter is an interactive, tool-driven AI agent that helps users draft, update, and save documents through natural language conversations.
-Built with LangGraph, LangChain, and Google Gemini, it demonstrates modern agent design patterns such as stateful workflows, tool invocation, and graph-based control flow.
+Drafter is an interactive AI-powered document assistant built using **LangGraph**, **LangChain**, and **Google Gemini**.  
+It allows users to create, update, and save documents using natural language through a terminal-based interface.
 
-# 🌟 Why This Project Matters
+This project demonstrates **tool-using AI agents**, **stateful workflows**, and **graph-based execution control**.
 
-This project showcases:
+---
 
-✅ Real-world LLM agent orchestration
-✅ Tool-using AI agents (update & save actions)
-✅ Stateful conversations using LangGraph
-✅ Clean separation of reasoning, tools, and control flow
-✅ Production-style agent loop (not a toy chatbot)
+## 🚀 Features
 
-Perfect as a portfolio project, college submission, or agent-system reference implementation.
+- ✍️ AI-assisted document drafting
+- 🔁 Iterative document updates
+- 🛠️ Tool-based actions (`update`, `save`)
+- 🧠 Stateful conversation using LangGraph
+- 💾 Save documents as `.txt` files
+- 🖥️ Simple terminal-based interaction
 
-# 🚀 Features
+---
 
-🧠 AI writing assistant with document awareness
-✍️ Iterative document updates via natural language
-🛠️ Tool calling (update, save) with Gemini
-🔄 LangGraph-based execution flo
-💾 Save final output as a .txt file
-🖥️ Lightweight terminal interface
+## 🧱 Architecture Overview
 
-# 🧱 Architecture Overview
-
-User (Terminal)
-   ↓
+User Input (Terminal)
+↓
 LangGraph State Machine
-   ↓
-LLM (Gemini 2.5 Flash)
-   ↓
-Tool Calls (update / save)
-   ↓
-Document State + File System
+↓
+Gemini LLM (Tool Calling)
+↓
+Document Update / Save Tools
+↓
+Local File System
 
-# Core Components
+---
 
-Agent Node → Handles reasoning and responses
-Tool Node → Executes document actions
-Conditional Edges → Decide when to stop execution
-Shared State → Maintains conversation + document content
+## 🛠️ Tech Stack
 
-# 🛠️ Tech Stack
+- **Python**
+- **LangChain**
+- **LangGraph**
+- **Google Gemini (gemini-2.5-flash)**
+- **python-dotenv**
 
-Component	Technology
-Language	Python
-LLM	Google Gemini (gemini-2.5-flash)
-Agent Framework	LangChain
-Workflow Engine	LangGraph
-Tooling	LangChain Tools
-Config	python-dotenv
+---
 
-# 📂 Project Structure
+## 📂 Project Structure
 .
-├── main.py          # Drafter agent implementation
-├── .env             # API keys (ignored in version control)
-├── README.md        # Project documentation
+├── main.py # Drafter agent implementation
+├── .env # API keys (not committed)
+├── README.md # Documentation
 
-# ⚙️ Setup & Installation
+---
 
-1️⃣ Clone the Repository
+## ⚙️ Installation & Setup
+
+```bash
+### 1️⃣ Clone the Repository
+
 git clone https://github.com/your-username/drafter-agent.git
-cd drafter-agent
+cd drafter-agent 
 
 2️⃣ Install Dependencies
+
 pip install langchain langgraph langchain-google-genai python-dotenv
 
 3️⃣ Configure Environment Variables
-Create a .env file:
+Create a .env file in the root directory:
+
 GOOGLE_API_KEY=your_google_gemini_api_key
-
-# ▶️ Running the Agent
-python main.py
-
-
-You’ll see:
-
-====== Drafter ======
-
-The agent will guide you step-by-step to create, modify, and save a document.
-
-# 🧪 Example Interaction
-What would you like to do with the document?
-> Create a project README for an AI agent
-
-AI: (Generates content and updates document)
-
-What would you like to do with the document?
-> Save it as drafter_readme
-
-TOOL RESULT:
-Document has been saved successfully to 'drafter_readme.txt'
-
-# 🛠️ Available Tools
-✍️ update
-
-Updates the entire document content.
-
-update(content: str) -> str
-
-Designed for full document rewrites to keep state consistent.
-
-💾 save
-
-Persists the document and ends the agent workflow.
-
-save(filename: str) -> str
-
-Automatically appends .txt if missing
